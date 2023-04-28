@@ -21,6 +21,5 @@ const myBash = function(commands) {
   }
 };
 
-console.log(listDirectories())
 exports.presentWorkingDirectory = presentWorkingDirectory;
 exports.listDirectories = listDirectories;
