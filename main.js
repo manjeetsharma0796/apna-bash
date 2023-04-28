@@ -1,30 +1,13 @@
-#! /bin/bash
 const fs = require('fs');
+const {myBash} = require('./lib/bash-lib.js');
 
-const presentWorkingDirectory = function() {
-  const {PWD} = process.env;
-  return PWD;
+const main = function() {
+  const argument = process.argv[2];
+  const content = fs.readFileSync(argument, 'utf-8');
+  const commands = content.split('\n');
+
+  console.log(content);
+  console.log(commands);
 };
 
-const listDirectories = function() {
-  return fs.readdirSync('.');
-};
-
-const content = fs.readFileSync('./apnaBash.ab', 'utf-8');
-const commands = content.split('\n');
-
-const myBash = function(commands) {
-  for(const command of commands) {
-    if(command === 'pwd') {
-      return presentWorkingDirectory();
-    }
-
-    if(command === 'ls') {
-      return listDirectories();
-    }
-  }
-};
-
-exports.presentWorkingDirectory = presentWorkingDirectory;
-exports.listDirectories = listDirectories;
-exports.myBash = myBash;
+main();
