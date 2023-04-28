@@ -2,12 +2,14 @@ const fs = require('fs');
 const {myBash} = require('./lib/bash-lib.js');
 
 const main = function() {
-  const argument = process.argv[2];
-  const content = fs.readFileSync(argument, 'utf-8');
-  const commands = content.split('\n');
+  const scriptFile = process.argv[2];
+  const scriptContent = fs.readFileSync(scriptFile, 'utf-8');
+  const commands = scriptContent.split('\n');
 
-  console.log(content);
-  console.log(commands);
+  for(command of commands) {
+    let display = myBash(command);
+    console.log(display);
+  }
 };
 
 main();
