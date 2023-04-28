@@ -16,6 +16,10 @@ describe("Testing listDirectories", function() {
 
 describe("Testing myBash", function() {
   it("should execute pwd, when pwd is provided as command", function() {
-    deepStrictEqual(myBash(['pwd']), "/Users/manjeet/workspace/JS/apna-bash");
+    deepStrictEqual(myBash(['pwd']), "/Users/manjeet/workspace/JS/apna-bash")
+  });
+
+  it("should execute ls, when ls is provided as command", function() {
+    deepStrictEqual(myBash(['ls']), [ '.git', '.gitignore', 'apnaBash.ab', 'main.js', 'test'])
   });
 });
