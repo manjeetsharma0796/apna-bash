@@ -16,10 +16,15 @@ const commands = content.split('\n');
 const myBash = function(commands) {
   for(const command of commands) {
     if(command === 'pwd') {
-      console.log(presentWorkingDirectory());
+      return presentWorkingDirectory();
+    }
+
+    if(command === 'ls') {
+      return listDirectories();
     }
   }
 };
 
 exports.presentWorkingDirectory = presentWorkingDirectory;
 exports.listDirectories = listDirectories;
+exports.myBash = myBash;
