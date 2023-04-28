@@ -6,6 +6,10 @@ const presentWorkingDirectory = function() {
   return PWD;
 };
 
+const listDirectories = function() {
+  return fs.readdirSync('.');
+};
+
 const content = fs.readFileSync('./apnaBash.ab', 'utf-8');
 const commands = content.split('\n');
 
@@ -17,4 +21,6 @@ const myBash = function(commands) {
   }
 };
 
+console.log(listDirectories())
 exports.presentWorkingDirectory = presentWorkingDirectory;
+exports.listDirectories = listDirectories;
