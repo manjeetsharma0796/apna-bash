@@ -1,6 +1,6 @@
 const {describe, it} = require('node:test');
 const {deepStrictEqual} = require('assert');
-const {presentWorkingDirectory, listDirectories, myBash, changeDirectory} = require('../main.js');
+const {presentWorkingDirectory, listDirectories, myBash, changeDirectory} = require('../lib/bash-lib.js');
 
 describe("Testing presentWorkingDirectory", function() {
   it("should give current working directory", function() {
@@ -10,22 +10,22 @@ describe("Testing presentWorkingDirectory", function() {
 
 describe("Testing listDirectories", function() {
   it("should give all files and directory from pwd", function() {
-    deepStrictEqual(listDirectories(), [ '.git', '.gitignore', 'apnaBash.ab', 'main.js', 'test' ]);
+    deepStrictEqual(listDirectories(), [ '.git', '.gitignore', 'apnaBash.ab', 'lib', 'main.js', 'test' ]);
   });
 });
 
 describe("Testing myBash", function() {
   it("should execute pwd, when pwd is provided as command", function() {
-    deepStrictEqual(myBash(['pwd']), "/Users/manjeet/workspace/JS/apna-bash")
+    deepStrictEqual(myBash('pwd'), "/Users/manjeet/workspace/JS/apna-bash")
   });
 
   it("should execute ls, when ls is provided as command", function() {
-    deepStrictEqual(myBash(['ls']), [ '.git', '.gitignore', 'apnaBash.ab', 'main.js', 'test'])
+    deepStrictEqual(myBash('ls'), [ '.git', '.gitignore', 'apnaBash.ab', 'lib', 'main.js', 'test'])
   });
 });
 
 describe("Testing changeDirectory", function() {
   it("should give true as given path exists", function() {
-    deepStrictEqual(changeDirectory('test'), true);
+    deepStrictEqual(changeDirectory('./test', 'hello'), 'hello/test');
   });
 });
