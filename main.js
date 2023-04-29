@@ -10,12 +10,13 @@ const main = function() {
   let pwd = process.env.PWD;
 
   for(command of commands) {
-    let rename = myBash(command, pwd);
-    if(rename.output !== undefined) {
-      outputs.push(rename.output);
+    let result = myBash(command, pwd);
+
+    if(result.output !== undefined) {
+      outputs.push(result.output);
     }
 
-    pwd = rename.pwd;
+    pwd = result.pwd;
   }
 
   return outputs;
