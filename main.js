@@ -6,7 +6,6 @@ const main = function() {
   const environment = {pwd};
   const script = read(process.argv[2]);
   const commandLines = parse(script);
-  //console.log(commandLines);
   const output = execute(commandLines, environment);
   console.log(output);
 };
