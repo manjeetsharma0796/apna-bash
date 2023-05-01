@@ -27,7 +27,7 @@ describe("Testing commands", function() {
 
   describe("Testing resolve", function() {
     it("Should give a path without .. when provided with path with .. included", function() {
-      deepStrictEqual(resolve('User/system/guest/../'), 'User/system/');
+      deepStrictEqual(resolve('/User/system/guest/../'), '/User/system');
     });
   });
 });
