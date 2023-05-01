@@ -1,6 +1,6 @@
 pwd
 ls
-cd workspace
+cd workspace/./././
 pwd
 ls
 cd personal
